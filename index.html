@@ -21,7 +21,7 @@
             --text-muted: #86868b;
             --text-light-gray: #a1a1a6;
             --border-subtle: #2c2c2e;
-            --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --transition-fast: 0.3s ease-out;
         }
 
@@ -215,12 +215,19 @@
             max-height: 85vh;
             object-fit: contain !important;
             display: block;
-            transform: translate3d(0, 0, 0);
-            will-change: transform;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            transform: translate3d(0, 30px, 0) scale3d(0.98, 0.98, 1);
+            will-change: transform, opacity;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
         }
 
-        .img-box:hover img {
+        /* High-efficiency fade state once scrolled into context */
+        .img-box img.fade-in-ready {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        }
+
+        .img-box:hover img.fade-in-ready {
             transform: scale3d(1.01, 1.01, 1);
         }
 
@@ -259,17 +266,52 @@
         #commercial .grid-item-23 { grid-column: span 7; }
         #commercial .grid-item-24 { grid-column: span 5; margin-top: 8rem; }
 
-        /* OTHER SECTIONS ALIGNMENTS */
+        /* MUSIC VIDEOS SECTION GRID ALIGNMENTS */
+        #music-videos .grid-item-26 { grid-column: span 6; }
+        #music-videos .grid-item-27 { grid-column: span 6; margin-top: 6rem; }
+        #music-videos .grid-item-28 { grid-column: span 6; }
+        #music-videos .grid-item-29 { grid-column: span 6; margin-top: 6rem; }
+        #music-videos .grid-item-30 { grid-column: span 4; }
+        #music-videos .grid-item-31 { grid-column: span 4; margin-top: 6rem; }
+        #music-videos .grid-item-32 { grid-column: span 4; }
+        #music-videos .grid-item-33 { grid-column: span 4; }
+        #music-videos .grid-item-34 { grid-column: span 4; margin-top: 6rem; }
+        #music-videos .grid-item-35 { grid-column: span 4; }
+        #music-videos .grid-item-36 { grid-column: span 4; }
+        #music-videos .grid-item-37 { grid-column: span 4; margin-top: 6rem; }
+        #music-videos .grid-item-38 { grid-column: span 4; }
+        #music-videos .grid-item-39 { grid-column: span 4; }
+        #music-videos .grid-item-40 { grid-column: span 4; margin-top: 6rem; }
+        #music-videos .grid-item-41 { grid-column: span 4; }
+        #music-videos .grid-item-42 { grid-column: span 4; }
+        #music-videos .grid-item-43 { grid-column: span 4; margin-top: 6rem; }
+        #music-videos .grid-item-44 { grid-column: span 4; }
+        #music-videos .grid-item-48 { grid-column: span 4; }
+        #music-videos .grid-item-49 { grid-column: span 4; margin-top: 6rem; }
+        #music-videos .grid-item-50 { grid-column: span 4; }
+        #music-videos .grid-item-51 { grid-column: span 4; }
+        #music-videos .grid-item-52 { grid-column: span 4; margin-top: 6rem; }
+        #music-videos .grid-item-53 { grid-column: span 4; }
+        #music-videos .grid-item-45 { grid-column: span 4; }
+        #music-videos .grid-item-46 { grid-column: span 4; margin-top: 6rem; }
+        #music-videos .grid-item-47 { grid-column: span 4; }
         #music-videos .grid-item-1 { grid-column: span 12; }
         #music-videos .grid-item-2 { grid-column: span 6; }
         #music-videos .grid-item-3 { grid-column: span 6; }
 
+        /* FOOD & BEVERAGE SECTION GRID ALIGNMENTS */
         #food-beverage .grid-item-1 { grid-column: span 4; }
         #food-beverage .grid-item-2 { grid-column: span 4; margin-top: 6rem; }
         #food-beverage .grid-item-3 { grid-column: span 4; }
         #food-beverage .grid-item-4 { grid-column: span 4; }
         #food-beverage .grid-item-5 { grid-column: span 4; margin-top: 6rem; }
         #food-beverage .grid-item-6 { grid-column: span 4; }
+
+        /* EVENTS SECTION GRID ALIGNMENTS */
+        #events .grid-item-1 { grid-column: span 5; }
+        #events .grid-item-2 { grid-column: span 7; }
+        #events .grid-item-3 { grid-column: span 7; }
+        #events .grid-item-4 { grid-column: span 5; margin-top: 6rem; }
 
         /* ========== CONTACT SECTION ========== */
         #contact {
@@ -413,7 +455,8 @@
     <!-- ========== HOME / SPLASH ========== -->
     <section id="home">
         <div class="hero-portrait">
-            <img src="portfolio.jpg" alt="Youssef Fahmy - Portrait">
+            <!-- Priority element: parsed directly without observer delay -->
+            <img src="portfolio.jpg" alt="Youssef Fahmy - Portrait" style="opacity:1; transform:none;">
         </div>
         <div class="hero-content">
             <div class="hero-header">
@@ -431,7 +474,10 @@
                     <a href="#food-beverage" class="portfolio-index-link">03. Food & Beverage</a>
                 </li>
                 <li class="portfolio-index-item">
-                    <a href="#contact" class="portfolio-index-link">04. Contact</a>
+                    <a href="#events" class="portfolio-index-link">04. Events</a>
+                </li>
+                <li class="portfolio-index-item">
+                    <a href="#contact" class="portfolio-index-link">05. Contact</a>
                 </li>
             </nav>
         </div>
@@ -450,12 +496,12 @@
             </div>
             <div class="img-container grid-item-1">
                 <div class="img-box">
-                    <img src="4swapp1.JPEG" alt="4swapp - Commercial project 1">
+                    <img data-src="4swapp1.JPEG" alt="4swapp - Commercial project 1">
                 </div>
             </div>
             <div class="img-container grid-item-2">
                 <div class="img-box">
-                    <img src="4swapp2.JPEG" alt="4swapp - Commercial project 2">
+                    <img data-src="4swapp2.JPEG" alt="4swapp - Commercial project 2">
                 </div>
             </div>
 
@@ -465,12 +511,12 @@
             </div>
             <div class="img-container grid-item-3">
                 <div class="img-box">
-                    <img src="Naqla1.JPEG" loading="lazy" alt="Naqla App - Commercial project 3">
+                    <img data-src="Naqla1.JPEG" alt="Naqla App - Commercial project 3">
                 </div>
             </div>
             <div class="img-container grid-item-4">
                 <div class="img-box">
-                    <img src="Naqla2.JPEG" loading="lazy" alt="Naqla App - Commercial project 4">
+                    <img data-src="Naqla2.JPEG" alt="Naqla App - Commercial project 4">
                 </div>
             </div>
 
@@ -480,17 +526,17 @@
             </div>
             <div class="img-container grid-item-5">
                 <div class="img-box">
-                    <img src="1 (3).jpg" loading="lazy" alt="Huawei - Asset 1">
+                    <img data-src="1 (3).jpg" alt="Huawei - Asset 1">
                 </div>
             </div>
             <div class="img-container grid-item-6">
                 <div class="img-box">
-                    <img src="1 (4).jpg" loading="lazy" alt="Huawei - Asset 2">
+                    <img data-src="1 (4).jpg" alt="Huawei - Asset 2">
                 </div>
             </div>
             <div class="img-container grid-item-7">
                 <div class="img-box">
-                    <img src="1 (2) 2.jpg" loading="lazy" alt="Huawei - Asset 3">
+                    <img data-src="1 (2) 2.jpg" alt="Huawei - Asset 3">
                 </div>
             </div>
 
@@ -500,12 +546,12 @@
             </div>
             <div class="img-container grid-item-8">
                 <div class="img-box">
-                    <img src="egbank1.jpg" loading="lazy" alt="EG BANK - Commercial asset 1">
+                    <img data-src="egbank1.jpg" alt="EG BANK - Commercial asset 1">
                 </div>
             </div>
             <div class="img-container grid-item-9">
                 <div class="img-box">
-                    <img src="egbank2.jpg" loading="lazy" alt="EG BANK - Commercial asset 2">
+                    <img data-src="egbank2.jpg" alt="EG BANK - Commercial asset 2">
                 </div>
             </div>
 
@@ -515,22 +561,22 @@
             </div>
             <div class="img-container grid-item-10">
                 <div class="img-box">
-                    <img src="roadster1.jpg" loading="lazy" alt="Roadster - Asset 1">
+                    <img data-src="roadster1.jpg" alt="Roadster - Asset 1">
                 </div>
             </div>
             <div class="img-container grid-item-11">
                 <div class="img-box">
-                    <img src="roadster2.jpg" loading="lazy" alt="Roadster - Asset 2">
+                    <img data-src="roadster2.jpg" alt="Roadster - Asset 2">
                 </div>
             </div>
             <div class="img-container grid-item-12">
                 <div class="img-box">
-                    <img src="roadster3.jpg" loading="lazy" alt="Roadster - Asset 3">
+                    <img data-src="roadster3.jpg" alt="Roadster - Asset 3">
                 </div>
             </div>
             <div class="img-container grid-item-13">
                 <div class="img-box">
-                    <img src="roadster4.jpg" loading="lazy" alt="Roadster - Asset 4">
+                    <img data-src="roadster4.jpg" alt="Roadster - Asset 4">
                 </div>
             </div>
 
@@ -540,22 +586,22 @@
             </div>
             <div class="img-container grid-item-14">
                 <div class="img-box">
-                    <img src="sam1.jpg" loading="lazy" alt="Samsung - Asset 1">
+                    <img data-src="sam1.jpg" alt="Samsung - Asset 1">
                 </div>
             </div>
             <div class="img-container grid-item-15">
                 <div class="img-box">
-                    <img src="sam2.jpg" loading="lazy" alt="Samsung - Asset 2">
+                    <img data-src="sam2.jpg" alt="Samsung - Asset 2">
                 </div>
             </div>
             <div class="img-container grid-item-16">
                 <div class="img-box">
-                    <img src="sam3.jpg" loading="lazy" alt="Samsung - Asset 3">
+                    <img data-src="sam3.jpg" alt="Samsung - Asset 3">
                 </div>
             </div>
             <div class="img-container grid-item-17">
                 <div class="img-box">
-                    <img src="sam4.jpg" loading="lazy" alt="Samsung - Asset 4">
+                    <img data-src="sam4.jpg" alt="Samsung - Asset 4">
                 </div>
             </div>
 
@@ -565,12 +611,12 @@
             </div>
             <div class="img-container grid-item-18">
                 <div class="img-box">
-                    <img src="lg1-2.jpg" loading="lazy" alt="LG - Asset 1">
+                    <img data-src="lg1-2.jpg" alt="LG - Asset 1">
                 </div>
             </div>
             <div class="img-container grid-item-19">
                 <div class="img-box">
-                    <img src="lg2.jpg" loading="lazy" alt="LG - Asset 2">
+                    <img data-src="lg2.jpg" alt="LG - Asset 2">
                 </div>
             </div>
 
@@ -580,17 +626,17 @@
             </div>
             <div class="img-container grid-item-20">
                 <div class="img-box">
-                    <img src="sr1.jpg" loading="lazy" alt="SR Padel - Asset 1">
+                    <img data-src="sr1.jpg" alt="SR Padel - Asset 1">
                 </div>
             </div>
             <div class="img-container grid-item-21">
                 <div class="img-box">
-                    <img src="sr2.jpg" loading="lazy" alt="SR Padel - Asset 2">
+                    <img data-src="sr2.jpg" alt="SR Padel - Asset 2">
                 </div>
             </div>
             <div class="img-container grid-item-22">
                 <div class="img-box">
-                    <img src="sr3.jpg" loading="lazy" alt="SR Padel - Asset 3">
+                    <img data-src="sr3.jpg" alt="SR Padel - Asset 3">
                 </div>
             </div>
 
@@ -600,12 +646,12 @@
             </div>
             <div class="img-container grid-item-23">
                 <div class="img-box">
-                    <img src="grm1.jpg" loading="lazy" alt="GRM - Asset 1">
+                    <img data-src="grm1.jpg" alt="GRM - Asset 1">
                 </div>
             </div>
             <div class="img-container grid-item-24">
                 <div class="img-box">
-                    <img src="grm2.jpg" loading="lazy" alt="GRM - Asset 2">
+                    <img data-src="grm2.jpg" alt="GRM - Asset 2">
                 </div>
             </div>
         </div>
@@ -618,21 +664,195 @@
             <h2 class="title-md">02. Music Videos</h2>
         </div>
         <div class="image-grid">
+            <!-- PROJECT 1: Kebda -->
+            <div class="project-group-header">
+                <h3 class="project-group-title">Kebda</h3>
+            </div>
+            <div class="img-container grid-item-26">
+                <div class="img-box">
+                    <img data-src="kebda1.jpg" alt="Kebda - Music Video Asset 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-27">
+                <div class="img-box">
+                    <img data-src="kebda2.jpg" alt="Kebda - Music Video Asset 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-28">
+                <div class="img-box">
+                    <img data-src="kebda3.jpg" alt="Kebda - Music Video Asset 3">
+                </div>
+            </div>
+            <div class="img-container grid-item-29">
+                <div class="img-box">
+                    <img data-src="kebda4.jpg" alt="Kebda - Music Video Asset 4">
+                </div>
+            </div>
+
+            <!-- PROJECT 2: Wadini -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">Wadini</h3>
+            </div>
+            <div class="img-container grid-item-30">
+                <div class="img-box">
+                    <img data-src="wad1.jpg" alt="Wadini - Music Video Asset 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-31">
+                <div class="img-box">
+                    <img data-src="wad2.jpg" alt="Wadini - Music Video Asset 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-32">
+                <div class="img-box">
+                    <img data-src="wad3.jpg" alt="Wadini - Music Video Asset 3">
+                </div>
+            </div>
+            <div class="img-container grid-item-33">
+                <div class="img-box">
+                    <img data-src="wad4.jpg" alt="Wadini - Music Video Asset 4">
+                </div>
+            </div>
+            <div class="img-container grid-item-34">
+                <div class="img-box">
+                    <img data-src="wad5.jpg" alt="Wadini - Music Video Asset 5">
+                </div>
+            </div>
+            <div class="img-container grid-item-35">
+                <div class="img-box">
+                    <img data-src="wad6.jpg" alt="Wadini - Music Video Asset 6">
+                </div>
+            </div>
+
+            <!-- PROJECT 3: E7na Aho -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">E7na Aho</h3>
+            </div>
+            <div class="img-container grid-item-36">
+                <div class="img-box">
+                    <img data-src="ehn1.jpg" alt="E7na Aho - Asset 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-37">
+                <div class="img-box">
+                    <img data-src="ehn2.jpg" alt="E7na Aho - Asset 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-38">
+                <div class="img-box">
+                    <img data-src="ehn3.jpg" alt="E7na Aho - Asset 3">
+                </div>
+            </div>
+
+            <!-- PROJECT 4: Ya sater -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">Ya sater</h3>
+            </div>
+            <div class="img-container grid-item-39">
+                <div class="img-box">
+                    <img data-src="yas1.jpg" alt="Ya sater - Asset 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-40">
+                <div class="img-box">
+                    <img data-src="yas2.jpg" alt="Ya sater - Asset 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-41">
+                <div class="img-box">
+                    <img data-src="yas3.jpg" alt="Ya sater - Asset 3">
+                </div>
+            </div>
+            <div class="img-container grid-item-42">
+                <div class="img-box">
+                    <img data-src="yas4.jpg" alt="Ya sater - Asset 4">
+                </div>
+            </div>
+            <div class="img-container grid-item-43">
+                <div class="img-box">
+                    <img data-src="yas5.jpg" alt="Ya sater - Asset 5">
+                </div>
+            </div>
+            <div class="img-container grid-item-44">
+                <div class="img-box">
+                    <img data-src="yas6.jpg" alt="Ya sater - Asset 6">
+                </div>
+            </div>
+
+            <!-- PROJECT 5: 3esabat -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">3esabat</h3>
+            </div>
+            <div class="img-container grid-item-48">
+                <div class="img-box">
+                    <img data-src="es1.jpg" alt="3esabat - Asset 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-49">
+                <div class="img-box">
+                    <img data-src="es2.jpg" alt="3esabat - Asset 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-50">
+                <div class="img-box">
+                    <img data-src="es3.jpg" alt="3esabat - Asset 3">
+                </div>
+            </div>
+            <div class="img-container grid-item-51">
+                <div class="img-box">
+                    <img data-src="es4.jpg" alt="3esabat - Asset 4">
+                </div>
+            </div>
+            <div class="img-container grid-item-52">
+                <div class="img-box">
+                    <img data-src="es5.jpg" alt="3esabat - Asset 5">
+                </div>
+            </div>
+            <div class="img-container grid-item-53">
+                <div class="img-box">
+                    <img data-src="es6.jpg" alt="3esabat - Asset 6">
+                </div>
+            </div>
+
+            <!-- PROJECT 6: Artistic -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">Artistic</h3>
+            </div>
+            <div class="img-container grid-item-45">
+                <div class="img-box">
+                    <img data-src="ar1.jpg" alt="Artistic - Asset 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-46">
+                <div class="img-box">
+                    <img data-src="ar2.jpg" alt="Artistic - Asset 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-47">
+                <div class="img-box">
+                    <img data-src="ar3.jpg" alt="Artistic - Asset 3">
+                </div>
+            </div>
+
+            <!-- ADDITIONAL MUSIC VIDEO REELS -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">Archive Reels</h3>
+            </div>
             <div class="img-container grid-item-1">
                 <div class="img-box">
-                    <img src="mv1.jpg" loading="lazy" alt="Music Video Project 1">
+                    <img data-src="mv1.jpg" alt="Music Video Project 1">
                 </div>
                 <p class="img-caption">Project Title I</p>
             </div>
             <div class="img-container grid-item-2">
                 <div class="img-box">
-                    <img src="mv2.jpg" loading="lazy" alt="Music Video Project 2">
+                    <img data-src="mv2.jpg" alt="Music Video Project 2">
                 </div>
                 <p class="img-caption">Project Title II</p>
             </div>
             <div class="img-container grid-item-3">
                 <div class="img-box">
-                    <img src="mv3.jpg" loading="lazy" alt="Music Video Project 3">
+                    <img data-src="mv3.jpg" alt="Music Video Project 3">
                 </div>
                 <p class="img-caption">Project Title III</p>
             </div>
@@ -646,24 +866,38 @@
             <h2 class="title-md">03. Food & Beverage</h2>
         </div>
         <div class="image-grid">
-            <div class="img-container grid-item-1"><div class="img-box"><img src="food1.jpg" loading="lazy" alt="Food & beverage 1"></div></div>
-            <div class="img-container grid-item-2"><div class="img-box"><img src="food2.jpg" loading="lazy" alt="Food & beverage 2"></div></div>
-            <div class="img-container grid-item-3"><div class="img-box"><img src="food3.jpg" loading="lazy" alt="Food & beverage 3"></div></div>
-            <div class="img-container grid-item-4"><div class="img-box"><img src="food4.jpg" loading="lazy" alt="Food & beverage 4"></div></div>
-            <div class="img-container grid-item-5"><div class="img-box"><img src="food5.jpg" loading="lazy" alt="Food & beverage 5"></div></div>
-            <div class="img-container grid-item-6"><div class="img-box"><img src="food6.jpg" loading="lazy" alt="Food & beverage 6"></div></div>
+            <div class="img-container grid-item-1"><div class="img-box"><img data-src="food1.jpg" alt="Food & beverage 1"></div></div>
+            <div class="img-container grid-item-2"><div class="img-box"><img data-src="food2.jpg" alt="Food & beverage 2"></div></div>
+            <div class="img-container grid-item-3"><div class="img-box"><img data-src="food3.jpg" alt="Food & beverage 3"></div></div>
+            <div class="img-container grid-item-4"><div class="img-box"><img data-src="food4.jpg" alt="Food & beverage 4"></div></div>
+            <div class="img-container grid-item-5"><div class="img-box"><img data-src="food5.jpg" alt="Food & beverage 5"></div></div>
+            <div class="img-container grid-item-6"><div class="img-box"><img data-src="food6.jpg" alt="Food & beverage 6"></div></div>
         </div>
     </section>
 
-    <!-- ========== 04. CONTACT ========== -->
+    <!-- ========== 04. EVENTS ========== -->
+    <section id="events">
+        <div class="section-title">
+            <span class="eyebrow">Coverage</span>
+            <h2 class="title-md">04. Events</h2>
+        </div>
+        <div class="image-grid">
+            <div class="img-container grid-item-1"><div class="img-box"><img data-src="event1.jpg" alt="Event coverage 1"></div></div>
+            <div class="img-container grid-item-2"><div class="img-box"><img data-src="event2.jpg" alt="Event coverage 2"></div></div>
+            <div class="img-container grid-item-3"><div class="img-box"><img data-src="event3.jpg" alt="Event coverage 3"></div></div>
+            <div class="img-container grid-item-4"><div class="img-box"><img data-src="event4.jpg" alt="Event coverage 4"></div></div>
+        </div>
+    </section>
+
+    <!-- ========== 05. CONTACT ========== -->
     <section id="contact">
         <div class="contact-barcode">
-            <img src="instagram-qr.jpg" loading="lazy" alt="Instagram QR Code">
+            <img data-src="instagram-qr.jpg" alt="Instagram QR Code">
         </div>
         <div class="contact-info">
             <div class="section-title">
                 <span class="eyebrow">Get In Touch</span>
-                <h2 class="title-md">04. Contact</h2>
+                <h2 class="title-md">05. Contact</h2>
             </div>
             <div class="contact-item">
                 <span class="contact-label">Instagram</span>
@@ -686,8 +920,9 @@
         </div>
     </section>
 
-    <!-- SCROLL CONTROL SCRIPT -->
+    <!-- SMART LOAD CONTROL ENGINE -->
     <script>
+        // Floating Back-To-Top button handling
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > window.innerHeight * 0.5) {
@@ -697,6 +932,7 @@
             }
         });
 
+        // Universal asymmetric smooth scrolling anchor system
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -708,6 +944,36 @@
                     });
                 }
             });
+        });
+
+        // High-Efficiency Native Intersection Observer Engine
+        document.addEventListener("DOMContentLoaded", () => {
+            const lazyImages = document.querySelectorAll(".img-box img");
+
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        // Map internal data source straight to active view link
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                        }
+                        
+                        img.addEventListener('load', () => {
+                            img.classList.add("fade-in-ready");
+                        });
+                        
+                        // Stop monitoring once injected into live view context
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: "250px 0px", // Pre-fetch cushion threshold to ensure zero pop-in latency
+                threshold: 0.01
+            });
+
+            lazyImages.forEach(image => imageObserver.observe(image));
         });
     </script>
 </body>
