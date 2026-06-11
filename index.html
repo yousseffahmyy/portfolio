@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Visual Director & Photographer Portfolio">
     <title>Youssef Fahmy - Visual Director & Photographer</title>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
@@ -29,6 +30,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
@@ -46,7 +48,7 @@
             letter-spacing: 0.3px;
         }
 
-        /* Master Structural Frame: Enforces precise layout centering across ultra-wides */
+        /* Master Structural Centering wrapper Frame */
         .portfolio-wrapper {
             max-width: 1600px;
             margin: 0 auto;
@@ -97,7 +99,7 @@
             flex-direction: column;
             justify-content: center;
             position: relative;
-            padding: clamp(3rem, 8vw, 5rem);
+            padding: clamp(2rem, 6vw, 5rem);
             background-color: var(--bg-black);
         }
 
@@ -297,7 +299,7 @@
         #music-videos .grid-item-46 { grid-column: span 4; margin-top: 6rem; }
         #music-videos .grid-item-47 { grid-column: span 4; }
 
-        /* --- 03. FOOD & BEVERAGE COMPiled CLASSES (AUDITED FIX) --- */
+        /* --- 03. FOOD & BEVERAGE COMPLIED CLASSES --- */
         #food-beverage .grid-item-54 { grid-column: span 4; }
         #food-beverage .grid-item-55 { grid-column: span 4; margin-top: 6rem; }
         #food-beverage .grid-item-56 { grid-column: span 4; }
@@ -308,12 +310,6 @@
         #food-beverage .grid-item-61 { grid-column: span 6; margin-top: 6rem; }
         #food-beverage .grid-item-62 { grid-column: span 6; }
         #food-beverage .grid-item-63 { grid-column: span 6; margin-top: 6rem; }
-
-        /* --- 04. EVENTS GRID POSITION ALIGNMENTS --- */
-        #events .grid-item-1 { grid-column: span 5; }
-        #events .grid-item-2 { grid-column: span 7; }
-        #events .grid-item-3 { grid-column: span 7; }
-        #events .grid-item-4 { grid-column: span 5; margin-top: 6rem; }
 
         /* ========== CONTACT SECTION ========== */
         #contact {
@@ -326,14 +322,14 @@
 
         .contact-barcode {
             width: 100%;
-            max-width: 350px;
-            height: 350px;
+            max-width: 300px;
+            height: 300px;
             background-color: var(--bg-card);
             border: 1px solid var(--border-subtle);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .contact-barcode img {
@@ -371,25 +367,28 @@
             word-break: break-word;
         }
 
-        /* ========== FLOATING BACK TO TOP ========== */
+        /* ========== MOBILE UTILITY TRIGGER BUTTON ========== */
         .back-to-top {
             position: fixed;
-            bottom: clamp(1.5rem, 3vw, 2.5rem);
-            right: clamp(1.5rem, 3vw, 2.5rem);
-            background-color: rgba(18, 18, 18, 0.85);
-            backdrop-filter: blur(12px);
+            bottom: clamp(1rem, 4vw, 2rem);
+            right: clamp(1rem, 4vw, 2rem);
+            background-color: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-subtle);
             color: var(--text-white);
-            padding: 0.75rem 1.2rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
+            padding: 1rem 1.4rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             z-index: 999;
             cursor: pointer;
             transition: all var(--transition-fast);
             opacity: 0;
             pointer-events: none;
+            border-radius: 4px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
 
         .back-to-top.visible {
@@ -397,26 +396,26 @@
             pointer-events: auto;
         }
 
-        .back-to-top:hover {
-            background-color: rgba(18, 18, 18, 0.95);
-            border-color: var(--text-white);
+        .back-to-top:active {
+            background-color: var(--text-white);
+            color: var(--bg-black);
         }
 
-        /* ========== RESPONSIVE DEVICE BREAKPOINTS ========== */
+        /* ========== RESPONSIVE PHONE VIEWPORTS WRAPPERS ========== */
         @media (max-width: 1024px) {
             #home {
                 grid-template-columns: 1fr;
                 min-height: auto;
-                gap: 2.5rem;
+                gap: 3rem;
             }
 
             #contact {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 4rem;
             }
 
             .hero-portrait {
-                min-height: 50vh;
+                min-height: 55vh;
                 height: auto;
             }
 
@@ -426,35 +425,68 @@
             }
 
             .img-box img {
-                max-height: 70vh;
+                max-height: 65vh;
+                width: 100%;
+                object-fit: contain;
             }
             
             .project-group-header {
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.75rem;
             }
 
             .project-group-header.spacing-top {
-                margin-top: 4rem;
+                margin-top: 5rem;
             }
         }
 
-        @media (max-width: 768px) {
-            section { padding: 3rem 1.5rem; min-height: auto; }
-            .hero-content { gap: 2.5rem; }
-            .image-grid { gap: 2.5rem; }
-            .hero-name { font-size: 2.5rem; }
-            .portfolio-index-link { font-size: 1.25rem; }
-            .title-md { font-size: 2rem; }
-            .contact-barcode { max-width: 250px; height: 250px; }
+        /* ========== HIGH-FIDELITY MOBILE & DESKTOP PDF COMPILING ENGINE ========== */
+        @media print {
+            @page {
+                size: portrait;
+                margin: 0rem; /* Full-bleed layout alignment padding */
+            }
+            body {
+                background-color: #000000 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .back-to-top, #backToTop, .portfolio-index {
+                display: none !important; /* Disables web interface overlays */
+            }
+            section {
+                page-break-inside: avoid;
+                page-break-after: always;
+                break-after: page;
+                min-height: auto !important;
+                padding: 1.5cm !important;
+            }
+            .image-grid {
+                display: block !important; /* Collapses flex columns evenly inside static pages */
+            }
+            .img-container {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-top: 2.5rem !important;
+                width: 100% !important;
+            }
+            .img-box img {
+                max-height: 42vh !important;
+                width: auto !important;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- MASTER STRUCTURAL CENTERING FRAME -->
     <div class="portfolio-wrapper">
 
-        <a href="#home" class="back-to-top" id="backToTop">Index</a>
+        <!-- ONE-TAP MOBILE PDF TRIGGER SYSTEM -->
+        <div class="back-to-top" id="backToTop" onclick="window.print();">Save PDF</div>
 
+        <!-- ========== HOME / SPLASH ========== -->
         <section id="home">
             <div class="hero-portrait">
                 <img src="portfolio.jpg" alt="Youssef Fahmy - Portrait">
@@ -475,18 +507,17 @@
                         <a href="#food-beverage" class="portfolio-index-link">03. Food & Beverage</a>
                     </li>
                     <li class="portfolio-index-item">
-                        <a href="#events" class="portfolio-index-link">04. Events</a>
-                    </li>
-                    <li class="portfolio-index-item">
-                        <a href="#contact" class="portfolio-index-link">05. Contact</a>
+                        <a href="#contact" class="portfolio-index-link">04. Contact</a>
                     </li>
                 </nav>
             </div>
         </section>
 
+        <!-- ========== 01. COMMERCIAL ADS ========== -->
         <section id="commercial">
             <h2 class="title-md">01. Commercial</h2>
             <div class="image-grid">
+                <!-- PROJECT 1: 4swapp -->
                 <div class="project-group-header">
                     <h3 class="project-group-title">4swapp</h3>
                 </div>
@@ -501,6 +532,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 2: Naqla App -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Naqla App</h3>
                 </div>
@@ -515,6 +547,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 3: Huawei -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Huawei</h3>
                 </div>
@@ -534,6 +567,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 4: EG BANK -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">EG BANK</h3>
                 </div>
@@ -548,6 +582,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 5: Roadster -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Roadster</h3>
                 </div>
@@ -572,6 +607,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 6: Samsung -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Samsung</h3>
                 </div>
@@ -596,6 +632,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 7: LG -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">LG</h3>
                 </div>
@@ -610,6 +647,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 8: SR Padel -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">SR Padel</h3>
                 </div>
@@ -629,6 +667,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 9: GRM -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">GRM</h3>
                 </div>
@@ -645,9 +684,11 @@
             </div>
         </section>
 
+        <!-- ========== 02. MUSIC VIDEOS ========== -->
         <section id="music-videos">
             <h2 class="title-md">02. Music Videos</h2>
             <div class="image-grid">
+                <!-- PROJECT 1: Kebda -->
                 <div class="project-group-header">
                     <h3 class="project-group-title">Kebda</h3>
                 </div>
@@ -672,6 +713,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 2: Wadini -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Wadini</h3>
                 </div>
@@ -706,6 +748,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 3: E7na Aho -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">E7na Aho</h3>
                 </div>
@@ -725,6 +768,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 4: Ya sater -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Ya sater</h3>
                 </div>
@@ -759,6 +803,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 5: 3esabat -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">3esabat</h3>
                 </div>
@@ -793,6 +838,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 6: Artistic -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Artistic</h3>
                 </div>
@@ -814,9 +860,11 @@
             </div>
         </section>
 
+        <!-- ========== 03. FOOD & BEVERAGE ========== -->
         <section id="food-beverage">
             <h2 class="title-md">03. Food & Beverage</h2>
             <div class="image-grid">
+                <!-- PROJECT 1: Buffalo Burger -->
                 <div class="project-group-header">
                     <h3 class="project-group-title">Buffalo Burger</h3>
                 </div>
@@ -836,6 +884,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 2: Steakery -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Steakery</h3>
                 </div>
@@ -855,6 +904,7 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 3: Twenty Grams -->
                 <div class="project-group-header spacing-top">
                     <h3 class="project-group-title">Twenty Grams</h3>
                 </div>
@@ -881,38 +931,13 @@
             </div>
         </section>
 
-        <section id="events">
-            <h2 class="title-md">04. Events</h2>
-            <div class="image-grid">
-                <div class="img-container grid-item-1">
-                    <div class="img-box">
-                        <img src="event1.jpg" alt="Event coverage 1">
-                    </div>
-                </div>
-                <div class="img-container grid-item-2">
-                    <div class="img-box">
-                        <img src="event2.jpg" alt="Event coverage 2">
-                    </div>
-                </div>
-                <div class="img-container grid-item-3">
-                    <div class="img-box">
-                        <img src="event3.jpg" alt="Event coverage 3">
-                    </div>
-                </div>
-                <div class="img-container grid-item-4">
-                    <div class="img-box">
-                        <img src="event4.jpg" alt="Event coverage 4">
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- ========== 04. CONTACT ========== -->
         <section id="contact">
             <div class="contact-barcode">
-                <img src="instagram-qr.jpg" alt="Instagram QR Code">
+                <img src="frame.png" alt="Instagram QR Code">
             </div>
             <div class="contact-info">
-                <h2 class="title-md">05. Contact</h2>
+                <h2 class="title-md">04. Contact</h2>
                 <div class="contact-item">
                     <span class="contact-label">Instagram</span>
                     <div class="contact-value">
@@ -922,7 +947,7 @@
                 <div class="contact-item">
                     <span class="contact-label">Phone</span>
                     <div class="contact-value">
-                        <a href="tel:+201000000000">+20 (100) 000-0000</a>
+                        <a href="tel:+201024775770">+20 102 477 5770</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -934,18 +959,22 @@
             </div>
         </section>
 
-    </div> <script>
-        // Floating Back-To-Top button display handling
+    </div> <!-- END MASTER CENTERING FRAME -->
+
+    <!-- MOBILE SCROLL & TRIGGER LOGIC SCRIPT -->
+    <script>
         const backToTopBtn = document.getElementById('backToTop');
+        
+        // Reveals the download button as soon as the user scrolls away from the hero splash screen
         window.addEventListener('scroll', () => {
-            if (window.scrollY > window.innerHeight * 0.5) {
+            if (window.scrollY > window.innerHeight * 0.3) {
                 backToTopBtn.classList.add('visible');
             } else {
                 backToTopBtn.classList.remove('visible');
             }
         });
 
-        // Universal asymmetric smooth scrolling anchor routing
+        // Touch anchor smoothing logic
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
