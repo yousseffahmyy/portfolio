@@ -167,7 +167,7 @@
             transform: translateX(8px);
         }
 
-        /* ========== FIXED FULL-FRAME SYSTEM (ANTI-CROP ENGINE) ========== */
+        /* ========== FULL-FRAME SYSTEM ========== */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -182,20 +182,35 @@
             flex-direction: column;
         }
 
+        /* NEW: Grouped Project Block Title styling */
+        .project-group-header {
+            grid-column: span 12;
+            margin-bottom: -1rem;
+        }
+
+        .project-group-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-white);
+            text-transform: uppercase;
+        }
+
         .img-box {
-            background-color: transparent; /* Removed dark background squares */
-            border: none;                  /* Removed rigid borders that box things in */
+            background-color: transparent;
+            border: none;
             overflow: hidden;
             position: relative;
             width: 100%;
-            height: auto;                  /* Prevents any container heights from forcing crops */
+            height: auto;
         }
 
         .img-box img {
             width: 100%;
-            height: auto;                  /* Lets layout read natural image dimension flow */
-            max-height: 85vh;              /* Ensures giant vertical photos remain completely on screen */
-            object-fit: contain !important;/* CRITICAL: Protects 100% frame data. Never zooms or hides edges */
+            height: auto;
+            max-height: 85vh;
+            object-fit: contain !important;
             display: block;
         }
 
@@ -210,7 +225,7 @@
 
         /* ASYMMETRIC POSITIONING SLOTS */
         #commercial .grid-item-1 { grid-column: span 7; }
-        #commercial .grid-item-2 { grid-column: span 5; margin-top: 12rem; }
+        #commercial .grid-item-2 { grid-column: span 5; margin-top: 8rem; }
         #commercial .grid-item-3 { grid-column: span 5; }
         #commercial .grid-item-4 { grid-column: span 7; margin-top: 8rem; }
 
@@ -341,7 +356,11 @@
             }
 
             .img-box img {
-                max-height: 75vh;
+                max-height: 70vh;
+            }
+            
+            .project-group-header {
+                margin-bottom: 0.5rem;
             }
         }
 
@@ -398,17 +417,20 @@
             <h2 class="title-md">01. Commercial</h2>
         </div>
         <div class="image-grid">
+            <!-- SHARED PROJECT TITLE FOR ENTIRE ROW -->
+            <div class="project-group-header">
+                <h3 class="project-group-title">4swapp</h3>
+            </div>
+
             <div class="img-container grid-item-1">
                 <div class="img-box">
                     <img src="4swapp1.JPEG" alt="4swapp - Commercial project 1">
                 </div>
-                <p class="img-caption">4swapp</p>
             </div>
             <div class="img-container grid-item-2">
                 <div class="img-box">
                     <img src="4swapp2.JPEG" alt="4swapp - Commercial project 2">
                 </div>
-                <p class="img-caption">4swapp</p>
             </div>
             <div class="img-container grid-item-3">
                 <div class="img-box">
