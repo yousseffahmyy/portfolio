@@ -182,10 +182,15 @@
             flex-direction: column;
         }
 
-        /* NEW: Grouped Project Block Title styling */
+        /* Grouped Project Block Title styling */
         .project-group-header {
             grid-column: span 12;
             margin-bottom: -1rem;
+        }
+
+        /* Added structural spacing margin to isolate sequential projects gracefully */
+        .project-group-header.spacing-top {
+            margin-top: clamp(4rem, 10vw, 12rem);
         }
 
         .project-group-title {
@@ -212,6 +217,11 @@
             max-height: 85vh;
             object-fit: contain !important;
             display: block;
+            transition: transform 0.8s ease-out;
+        }
+
+        .img-box:hover img {
+            transform: scale(1.01);
         }
 
         .img-caption {
@@ -362,6 +372,10 @@
             .project-group-header {
                 margin-bottom: 0.5rem;
             }
+
+            .project-group-header.spacing-top {
+                margin-top: 4rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -417,11 +431,10 @@
             <h2 class="title-md">01. Commercial</h2>
         </div>
         <div class="image-grid">
-            <!-- SHARED PROJECT TITLE FOR ENTIRE ROW -->
+            <!-- PROJECT 1: 4swapp -->
             <div class="project-group-header">
                 <h3 class="project-group-title">4swapp</h3>
             </div>
-
             <div class="img-container grid-item-1">
                 <div class="img-box">
                     <img src="4swapp1.JPEG" alt="4swapp - Commercial project 1">
@@ -432,14 +445,19 @@
                     <img src="4swapp2.JPEG" alt="4swapp - Commercial project 2">
                 </div>
             </div>
+
+            <!-- PROJECT 2: Naqla App -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">Naqla App</h3>
+            </div>
             <div class="img-container grid-item-3">
                 <div class="img-box">
-                    <img src="commercial3.jpg" alt="Commercial project 3">
+                    <img src="Naqla1.JPEG" alt="Naqla App - Commercial project 3">
                 </div>
             </div>
             <div class="img-container grid-item-4">
                 <div class="img-box">
-                    <img src="commercial4.jpg" alt="Commercial project 4">
+                    <img src="Naqla2.JPEG" alt="Naqla App - Commercial project 4">
                 </div>
             </div>
         </div>
