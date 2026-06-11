@@ -15,12 +15,12 @@
         /* ========== DESIGN TOKENS ========== */
         :root {
             --bg-black: #000000;
-            --bg-dark-gray: #1a1a1a;
-            --bg-card: #2a2a2a;
+            --bg-dark-gray: #121212;
+            --bg-card: #1a1a1a;
             --text-white: #ffffff;
-            --text-muted: #b0b0b0;
-            --text-light-gray: #d0d0d0;
-            --border-subtle: #3a3a3a;
+            --text-muted: #86868b;
+            --text-light-gray: #a1a1a6;
+            --border-subtle: #2c2c2e;
             --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --transition-fast: 0.3s ease-out;
         }
@@ -45,44 +45,12 @@
             font-weight: 300;
             overflow-x: hidden;
             letter-spacing: 0.3px;
-            position: relative;
-        }
-
-        /* ========== DYNAMIC CLOUD BACKGROUND ========== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><filter id="blur"><feGaussianBlur in="SourceGraphic" stdDeviation="8"/></filter></defs><path d="M0,200 Q150,150 300,200 T600,200 T900,200 T1200,200 L1200,400 L0,400 Z" fill="%23505050" opacity="0.4" filter="url(%23blur)"/><path d="M0,220 Q180,170 360,220 T720,220 T1080,220 T1200,220 L1200,400 L0,400 Z" fill="%23606060" opacity="0.3" filter="url(%23blur)"/><path d="M0,250 Q200,200 400,250 T800,250 T1200,250 L1200,400 L0,400 Z" fill="%23707070" opacity="0.2" filter="url(%23blur)"/></svg>') repeat-x;
-            background-size: 100% 100%;
-            background-position: 0 0;
-            animation: cloudDrift 120s linear infinite;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        @keyframes cloudDrift {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 100% 0;
-            }
-        }
-
-        body > * {
-            position: relative;
-            z-index: 2;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
             letter-spacing: -0.5px;
-            color: var(--text-white);
         }
 
         a {
@@ -105,14 +73,12 @@
             font-weight: 600;
             line-height: 1.1;
             letter-spacing: -1px;
-            color: var(--text-white);
         }
 
         .title-md {
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 600;
             line-height: 1.2;
-            color: var(--text-white);
         }
 
         .subtitle {
@@ -181,7 +147,6 @@
             line-height: 1.05;
             letter-spacing: -1.5px;
             margin: 0.5rem 0 0 0;
-            color: var(--text-white);
         }
 
         .hero-title {
@@ -191,6 +156,14 @@
             text-transform: uppercase;
             color: var(--text-muted);
             margin-top: 0.5rem;
+        }
+
+        .hero-location {
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 1rem;
         }
 
         /* ========== NAVIGATION INDEX ========== */
@@ -371,7 +344,6 @@
             align-items: center;
             justify-content: center;
             padding: 2rem;
-            border-radius: 8px;
         }
 
         .contact-barcode img {
@@ -412,7 +384,6 @@
         .contact-value a {
             transition: color var(--transition-fast);
             cursor: pointer;
-            color: var(--text-white);
         }
 
         .contact-value a:hover {
@@ -424,7 +395,7 @@
             position: fixed;
             bottom: clamp(1.5rem, 3vw, 2.5rem);
             right: clamp(1.5rem, 3vw, 2.5rem);
-            background-color: rgba(42, 42, 42, 0.85);
+            background-color: rgba(18, 18, 18, 0.85);
             backdrop-filter: blur(12px);
             border: 1px solid var(--border-subtle);
             color: var(--text-white);
@@ -446,7 +417,7 @@
         }
 
         .back-to-top:hover {
-            background-color: rgba(60, 60, 60, 0.95);
+            background-color: rgba(18, 18, 18, 0.95);
             border-color: var(--text-white);
             padding-right: 1.4rem;
         }
