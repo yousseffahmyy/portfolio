@@ -79,6 +79,7 @@
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 600;
             line-height: 1.2;
+            margin-bottom: 2rem;
         }
 
         /* ========== SECTIONS ========== */
@@ -221,7 +222,6 @@
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
         }
 
-        /* High-efficiency fade state once scrolled into context */
         .img-box img.fade-in-ready {
             opacity: 1;
             transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -295,17 +295,18 @@
         #music-videos .grid-item-45 { grid-column: span 4; }
         #music-videos .grid-item-46 { grid-column: span 4; margin-top: 6rem; }
         #music-videos .grid-item-47 { grid-column: span 4; }
-        #music-videos .grid-item-1 { grid-column: span 12; }
-        #music-videos .grid-item-2 { grid-column: span 6; }
-        #music-videos .grid-item-3 { grid-column: span 6; }
 
         /* FOOD & BEVERAGE SECTION GRID ALIGNMENTS */
-        #food-beverage .grid-item-1 { grid-column: span 4; }
-        #food-beverage .grid-item-2 { grid-column: span 4; margin-top: 6rem; }
-        #food-beverage .grid-item-3 { grid-column: span 4; }
-        #food-beverage .grid-item-4 { grid-column: span 4; }
-        #food-beverage .grid-item-5 { grid-column: span 4; margin-top: 6rem; }
-        #food-beverage .grid-item-6 { grid-column: span 4; }
+        #food-beverage .grid-item-54 { grid-column: span 4; }
+        #food-beverage .grid-item-55 { grid-column: span 4; margin-top: 6rem; }
+        #food-beverage .grid-item-56 { grid-column: span 4; }
+        #food-beverage .grid-item-57 { grid-column: span 4; }
+        #food-beverage .grid-item-58 { grid-column: span 4; margin-top: 6rem; }
+        #food-beverage .grid-item-59 { grid-column: span 4; }
+        #food-beverage .grid-item-60 { grid-column: span 6; }
+        #food-beverage .grid-item-61 { grid-column: span 6; margin-top: 6rem; }
+        #food-beverage .grid-item-62 { grid-column: span 6; }
+        #food-beverage .grid-item-63 { grid-column: span 6; margin-top: 6rem; }
 
         /* EVENTS SECTION GRID ALIGNMENTS */
         #events .grid-item-1 { grid-column: span 5; }
@@ -455,7 +456,6 @@
     <!-- ========== HOME / SPLASH ========== -->
     <section id="home">
         <div class="hero-portrait">
-            <!-- Priority element: parsed directly without observer delay -->
             <img src="portfolio.jpg" alt="Youssef Fahmy - Portrait" style="opacity:1; transform:none;">
         </div>
         <div class="hero-content">
@@ -485,10 +485,7 @@
 
     <!-- ========== 01. COMMERCIAL ADS ========== -->
     <section id="commercial">
-        <div class="section-title">
-            <span class="eyebrow">Portfolio</span>
-            <h2 class="title-md">01. Commercial</h2>
-        </div>
+        <h2 class="title-md">01. Commercial</h2>
         <div class="image-grid">
             <!-- PROJECT 1: 4swapp -->
             <div class="project-group-header">
@@ -659,10 +656,7 @@
 
     <!-- ========== 02. MUSIC VIDEOS ========== -->
     <section id="music-videos">
-        <div class="section-title">
-            <span class="eyebrow">Motion</span>
-            <h2 class="title-md">02. Music Videos</h2>
-        </div>
+        <h2 class="title-md">02. Music Videos</h2>
         <div class="image-grid">
             <!-- PROJECT 1: Kebda -->
             <div class="project-group-header">
@@ -833,54 +827,83 @@
                     <img data-src="ar3.jpg" alt="Artistic - Asset 3">
                 </div>
             </div>
-
-            <!-- ADDITIONAL MUSIC VIDEO REELS -->
-            <div class="project-group-header spacing-top">
-                <h3 class="project-group-title">Archive Reels</h3>
-            </div>
-            <div class="img-container grid-item-1">
-                <div class="img-box">
-                    <img data-src="mv1.jpg" alt="Music Video Project 1">
-                </div>
-                <p class="img-caption">Project Title I</p>
-            </div>
-            <div class="img-container grid-item-2">
-                <div class="img-box">
-                    <img data-src="mv2.jpg" alt="Music Video Project 2">
-                </div>
-                <p class="img-caption">Project Title II</p>
-            </div>
-            <div class="img-container grid-item-3">
-                <div class="img-box">
-                    <img data-src="mv3.jpg" alt="Music Video Project 3">
-                </div>
-                <p class="img-caption">Project Title III</p>
-            </div>
         </div>
     </section>
 
     <!-- ========== 03. FOOD & BEVERAGE ========== -->
     <section id="food-beverage">
-        <div class="section-title">
-            <span class="eyebrow">Editorial</span>
-            <h2 class="title-md">03. Food & Beverage</h2>
-        </div>
+        <h2 class="title-md">03. Food & Beverage</h2>
         <div class="image-grid">
-            <div class="img-container grid-item-1"><div class="img-box"><img data-src="food1.jpg" alt="Food & beverage 1"></div></div>
-            <div class="img-container grid-item-2"><div class="img-box"><img data-src="food2.jpg" alt="Food & beverage 2"></div></div>
-            <div class="img-container grid-item-3"><div class="img-box"><img data-src="food3.jpg" alt="Food & beverage 3"></div></div>
-            <div class="img-container grid-item-4"><div class="img-box"><img data-src="food4.jpg" alt="Food & beverage 4"></div></div>
-            <div class="img-container grid-item-5"><div class="img-box"><img data-src="food5.jpg" alt="Food & beverage 5"></div></div>
-            <div class="img-container grid-item-6"><div class="img-box"><img data-src="food6.jpg" alt="Food & beverage 6"></div></div>
+            <!-- EDITORIAL PROJECT 1: Buffalo Burger -->
+            <div class="project-group-header">
+                <h3 class="project-group-title">Buffalo Burger</h3>
+            </div>
+            <div class="img-container grid-item-54">
+                <div class="img-box">
+                    <img data-src="bf1.jpg" alt="Buffalo Burger - Editorial 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-55">
+                <div class="img-box">
+                    <img data-src="bf2.jpg" alt="Buffalo Burger - Editorial 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-56">
+                <div class="img-box">
+                    <img data-src="bf3.jpg" alt="Buffalo Burger - Editorial 3">
+                </div>
+            </div>
+
+            <!-- EDITORIAL PROJECT 2: Steakery -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">Steakery</h3>
+            </div>
+            <div class="img-container grid-item-57">
+                <div class="img-box">
+                    <img data-src="st1.jpg" alt="Steakery - Editorial 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-58">
+                <div class="img-box">
+                    <img data-src="st2.jpg" alt="Steakery - Editorial 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-59">
+                <div class="img-box">
+                    <img data-src="st3.jpg" alt="Steakery - Editorial 3">
+                </div>
+            </div>
+
+            <!-- EDITORIAL PROJECT 3: Twenty Grams -->
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">Twenty Grams</h3>
+            </div>
+            <div class="img-container grid-item-60">
+                <div class="img-box">
+                    <img data-src="t1.jpg" alt="Twenty Grams - Editorial 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-61">
+                <div class="img-box">
+                    <img data-src="t2.jpg" alt="Twenty Grams - Editorial 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-62">
+                <div class="img-box">
+                    <img data-src="t3.jpg" alt="Twenty Grams - Editorial 3">
+                </div>
+            </div>
+            <div class="img-container grid-item-63">
+                <div class="img-box">
+                    <img data-src="t4.jpg" alt="Twenty Grams - Editorial 4">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- ========== 04. EVENTS ========== -->
     <section id="events">
-        <div class="section-title">
-            <span class="eyebrow">Coverage</span>
-            <h2 class="title-md">04. Events</h2>
-        </div>
+        <h2 class="title-md">04. Events</h2>
         <div class="image-grid">
             <div class="img-container grid-item-1"><div class="img-box"><img data-src="event1.jpg" alt="Event coverage 1"></div></div>
             <div class="img-container grid-item-2"><div class="img-box"><img data-src="event2.jpg" alt="Event coverage 2"></div></div>
@@ -895,10 +918,7 @@
             <img data-src="instagram-qr.jpg" alt="Instagram QR Code">
         </div>
         <div class="contact-info">
-            <div class="section-title">
-                <span class="eyebrow">Get In Touch</span>
-                <h2 class="title-md">05. Contact</h2>
-            </div>
+            <h2 class="title-md">05. Contact</h2>
             <div class="contact-item">
                 <span class="contact-label">Instagram</span>
                 <div class="contact-value">
@@ -922,7 +942,6 @@
 
     <!-- SMART LOAD CONTROL ENGINE -->
     <script>
-        // Floating Back-To-Top button handling
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > window.innerHeight * 0.5) {
@@ -932,7 +951,6 @@
             }
         });
 
-        // Universal asymmetric smooth scrolling anchor system
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -946,7 +964,6 @@
             });
         });
 
-        // High-Efficiency Native Intersection Observer Engine
         document.addEventListener("DOMContentLoaded", () => {
             const lazyImages = document.querySelectorAll(".img-box img");
 
@@ -954,7 +971,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
-                        // Map internal data source straight to active view link
                         if (img.dataset.src) {
                             img.src = img.dataset.src;
                         }
@@ -963,13 +979,12 @@
                             img.classList.add("fade-in-ready");
                         });
                         
-                        // Stop monitoring once injected into live view context
                         observer.unobserve(img);
                     }
                 });
             }, {
                 root: null,
-                rootMargin: "250px 0px", // Pre-fetch cushion threshold to ensure zero pop-in latency
+                rootMargin: "250px 0px",
                 threshold: 0.01
             });
 
