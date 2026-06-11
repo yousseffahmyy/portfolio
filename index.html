@@ -325,6 +325,71 @@
             margin-top: 2rem;
         }
 
+        /* ========== CONTACT SECTION ========== */
+        #contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 6vw, 4rem);
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contact-barcode {
+            width: 100%;
+            max-width: 350px;
+            height: 350px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .contact-barcode img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .contact-value {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            color: var(--text-white);
+            word-break: break-word;
+        }
+
+        .contact-value a {
+            transition: color var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .contact-value a:hover {
+            color: var(--text-light-gray);
+        }
+
         /* ========== BACK TO TOP / FLOATING NAV ========== */
         .back-to-top {
             position: fixed;
@@ -399,6 +464,11 @@
                 gap: 2rem;
             }
 
+            #contact {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
             .hero-portrait {
                 min-height: 50vh;
             }
@@ -464,6 +534,15 @@
             .title-md {
                 font-size: 1.8rem;
             }
+
+            .contact-barcode {
+                max-width: 250px;
+                height: 250px;
+            }
+
+            .contact-info {
+                gap: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -490,6 +569,15 @@
             .back-to-top {
                 padding: 0.6rem 0.9rem;
                 font-size: 0.7rem;
+            }
+
+            .contact-barcode {
+                max-width: 200px;
+                height: 200px;
+            }
+
+            .contact-value {
+                font-size: 1.2rem;
             }
         }
 
@@ -520,13 +608,16 @@
             </div>
             <nav class="portfolio-index">
                 <li class="portfolio-index-item">
-                    <a href="#commercial" class="portfolio-index-link">01. Commercial Ads</a>
+                    <a href="#commercial" class="portfolio-index-link">01. Commercial</a>
                 </li>
                 <li class="portfolio-index-item">
                     <a href="#food-beverage" class="portfolio-index-link">02. Food & Beverage</a>
                 </li>
                 <li class="portfolio-index-item">
-                    <a href="#events" class="portfolio-index-link">03. Events Attended</a>
+                    <a href="#events" class="portfolio-index-link">03. Events</a>
+                </li>
+                <li class="portfolio-index-item">
+                    <a href="#contact" class="portfolio-index-link">04. Contact</a>
                 </li>
             </nav>
         </div>
@@ -536,7 +627,7 @@
     <section id="commercial">
         <div class="section-title">
             <span class="eyebrow">Portfolio</span>
-            <h2 class="title-md">01. Commercial Ads</h2>
+            <h2 class="title-md">01. Commercial</h2>
         </div>
         <div class="image-grid">
             <div class="img-box grid-item-1">
@@ -586,7 +677,7 @@
     <section id="events">
         <div class="section-title">
             <span class="eyebrow">Coverage</span>
-            <h2 class="title-md">03. Events Attended</h2>
+            <h2 class="title-md">03. Events</h2>
         </div>
         <div class="image-grid">
             <div class="img-box grid-item-1">
@@ -600,6 +691,37 @@
             </div>
             <div class="img-box grid-item-4">
                 <img src="event4.jpg" alt="Event coverage 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact">
+        <div class="contact-barcode">
+            <img src="instagram-qr.jpg" alt="Instagram QR Code">
+        </div>
+        <div class="contact-info">
+            <div class="section-title">
+                <span class="eyebrow">Get In Touch</span>
+                <h2 class="title-md">04. Contact</h2>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Instagram</span>
+                <div class="contact-value">
+                    <a href="https://instagram.com/yousseffahmyy" target="_blank">@yousseffahmyy</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Phone</span>
+                <div class="contact-value">
+                    <a href="tel:+201000000000">+20 (100) 000-0000</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <div class="contact-value">
+                    <a href="mailto:yousseffahmy35@gmail.com">yousseffahmy35@gmail.com</a>
+                </div>
             </div>
         </div>
     </section>
