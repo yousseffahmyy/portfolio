@@ -6,7 +6,6 @@
     <meta name="description" content="Visual Director & Photographer Portfolio">
     <title>Youssef Fahmy - Visual Director & Photographer</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
@@ -243,6 +242,10 @@
         #commercial .grid-item-7 { grid-column: span 4; }
         #commercial .grid-item-8 { grid-column: span 7; }
         #commercial .grid-item-9 { grid-column: span 5; margin-top: 8rem; }
+        #commercial .grid-item-10 { grid-column: span 6; }
+        #commercial .grid-item-11 { grid-column: span 6; margin-top: 6rem; }
+        #commercial .grid-item-12 { grid-column: span 6; }
+        #commercial .grid-item-13 { grid-column: span 6; margin-top: 6rem; }
 
         /* OTHER SECTIONS ALIGNMENTS */
         #music-videos .grid-item-1 { grid-column: span 12; }
@@ -397,10 +400,8 @@
 </head>
 <body>
 
-    <!-- FLOATING BACK TO TOP -->
     <a href="#home" class="back-to-top" id="backToTop">Index</a>
 
-    <!-- ========== HOME / SPLASH ========== -->
     <section id="home">
         <div class="hero-portrait">
             <img src="portfolio.jpg" alt="Youssef Fahmy - Portrait">
@@ -430,14 +431,12 @@
         </div>
     </section>
 
-    <!-- ========== 01. COMMERCIAL ADS ========== -->
     <section id="commercial">
         <div class="section-title">
             <span class="eyebrow">Portfolio</span>
             <h2 class="title-md">01. Commercial</h2>
         </div>
         <div class="image-grid">
-            <!-- PROJECT 1: 4swapp -->
             <div class="project-group-header">
                 <h3 class="project-group-title">4swapp</h3>
             </div>
@@ -452,7 +451,6 @@
                 </div>
             </div>
 
-            <!-- PROJECT 2: Naqla App -->
             <div class="project-group-header spacing-top">
                 <h3 class="project-group-title">Naqla App</h3>
             </div>
@@ -467,7 +465,6 @@
                 </div>
             </div>
 
-            <!-- PROJECT 3: Huawei -->
             <div class="project-group-header spacing-top">
                 <h3 class="project-group-title">Huawei</h3>
             </div>
@@ -487,7 +484,6 @@
                 </div>
             </div>
 
-            <!-- PROJECT 4: EG BANK -->
             <div class="project-group-header spacing-top">
                 <h3 class="project-group-title">EG BANK</h3>
             </div>
@@ -501,10 +497,33 @@
                     <img src="egbank2.jpg" alt="EG BANK - Commercial asset 2">
                 </div>
             </div>
+
+            <div class="project-group-header spacing-top">
+                <h3 class="project-group-title">Roadster</h3>
+            </div>
+            <div class="img-container grid-item-10">
+                <div class="img-box">
+                    <img src="roadster1.jpg" alt="Roadster - Asset 1">
+                </div>
+            </div>
+            <div class="img-container grid-item-11">
+                <div class="img-box">
+                    <img src="roadster2.jpg" alt="Roadster - Asset 2">
+                </div>
+            </div>
+            <div class="img-container grid-item-12">
+                <div class="img-box">
+                    <img src="roadster3.jpg" alt="Roadster - Asset 3">
+                </div>
+            </div>
+            <div class="img-container grid-item-13">
+                <div class="img-box">
+                    <img src="roadster4.jpg" alt="Roadster - Asset 4">
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ========== 02. MUSIC VIDEOS ========== -->
     <section id="music-videos">
         <div class="section-title">
             <span class="eyebrow">Motion</span>
@@ -532,7 +551,6 @@
         </div>
     </section>
 
-    <!-- ========== 03. FOOD & BEVERAGE ========== -->
     <section id="food-beverage">
         <div class="section-title">
             <span class="eyebrow">Editorial</span>
@@ -548,7 +566,6 @@
         </div>
     </section>
 
-    <!-- ========== 04. EVENTS ========== -->
     <section id="events">
         <div class="section-title">
             <span class="eyebrow">Coverage</span>
@@ -562,7 +579,6 @@
         </div>
     </section>
 
-    <!-- ========== 05. CONTACT ========== -->
     <section id="contact">
         <div class="contact-barcode">
             <img src="instagram-qr.jpg" alt="Instagram QR Code">
@@ -593,7 +609,6 @@
         </div>
     </section>
 
-    <!-- SCROLL CONTROL SCRIPT -->
     <script>
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
