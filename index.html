@@ -209,7 +209,7 @@
             color: var(--text-white);
         }
 
-        /* ========== IMAGE GRID GRID SYSTEM ========== */
+        /* ========== IMAGE GRID SYSTEM ========== */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -253,11 +253,17 @@
             text-transform: uppercase;
         }
 
-        /* DESKTOP ASYMMETRIC GRID LAYOUT ALIGNMENTS */
+        /* DESKTOP ASYMMETRIC LAYOUTS */
         #commercial .grid-item-1 { grid-column: span 7; }
         #commercial .grid-item-2 { grid-column: span 5; margin-top: 4rem; }
         #commercial .grid-item-3 { grid-column: span 5; }
         #commercial .grid-item-4 { grid-column: span 7; margin-top: 4rem; }
+
+        /* MUSIC VIDEOS WIDESCREEN GRID (16:9 Cinematic Aspect) */
+        #music-videos .img-box { aspect-ratio: 16 / 9; }
+        #music-videos .grid-item-1 { grid-column: span 12; }
+        #music-videos .grid-item-2 { grid-column: span 6; }
+        #music-videos .grid-item-3 { grid-column: span 6; }
 
         #food-beverage .grid-item-1 { grid-column: span 4; }
         #food-beverage .grid-item-2 { grid-column: span 4; margin-top: 3rem; }
@@ -375,18 +381,12 @@
                 min-height: 60vh;
                 height: auto;
             }
-            
-            .hero-portrait img {
-                object-fit: cover;
-            }
 
-            /* Clear desktop alignment properties to protect layout on small screens */
             .image-grid > div {
                 grid-column: span 12 !important;
                 margin-top: 0 !important;
             }
 
-            /* Native phone screen frame calculation prevents cutting details */
             .img-box {
                 aspect-ratio: auto !important;
                 max-height: 75vh;
@@ -395,7 +395,7 @@
             .img-box img {
                 width: 100%;
                 height: auto;
-                object-fit: contain; /* Assures full frame visual safety */
+                object-fit: contain;
                 background-color: var(--bg-dark-gray);
             }
         }
@@ -431,19 +431,22 @@
                     <a href="#commercial" class="portfolio-index-link">01. Commercial</a>
                 </li>
                 <li class="portfolio-index-item">
-                    <a href="#food-beverage" class="portfolio-index-link">02. Food & Beverage</a>
+                    <a href="#music-videos" class="portfolio-index-link">02. Music Videos</a>
                 </li>
                 <li class="portfolio-index-item">
-                    <a href="#events" class="portfolio-index-link">03. Events</a>
+                    <a href="#food-beverage" class="portfolio-index-link">03. Food & Beverage</a>
                 </li>
                 <li class="portfolio-index-item">
-                    <a href="#contact" class="portfolio-index-link">04. Contact</a>
+                    <a href="#events" class="portfolio-index-link">04. Events</a>
+                </li>
+                <li class="portfolio-index-item">
+                    <a href="#contact" class="portfolio-index-link">05. Contact</a>
                 </li>
             </nav>
         </div>
     </section>
 
-    <!-- ========== COMMERCIAL ADS ========== -->
+    <!-- ========== 01. COMMERCIAL ADS ========== -->
     <section id="commercial">
         <div class="section-title">
             <span class="eyebrow">Portfolio</span>
@@ -475,11 +478,39 @@
         </div>
     </section>
 
-    <!-- ========== FOOD & BEVERAGE ========== -->
+    <!-- ========== 02. MUSIC VIDEOS ========== -->
+    <section id="music-videos">
+        <div class="section-title">
+            <span class="eyebrow">Motion</span>
+            <h2 class="title-md">02. Music Videos</h2>
+        </div>
+        <div class="image-grid">
+            <div class="img-container grid-item-1">
+                <div class="img-box">
+                    <img src="mv1.jpg" alt="Music Video Project 1">
+                </div>
+                <p class="img-caption">Project Title I</p>
+            </div>
+            <div class="img-container grid-item-2">
+                <div class="img-box">
+                    <img src="mv2.jpg" alt="Music Video Project 2">
+                </div>
+                <p class="img-caption">Project Title II</p>
+            </div>
+            <div class="img-container grid-item-3">
+                <div class="img-box">
+                    <img src="mv3.jpg" alt="Music Video Project 3">
+                </div>
+                <p class="img-caption">Project Title III</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 03. FOOD & BEVERAGE ========== -->
     <section id="food-beverage">
         <div class="section-title">
             <span class="eyebrow">Editorial</span>
-            <h2 class="title-md">02. Food & Beverage</h2>
+            <h2 class="title-md">03. Food & Beverage</h2>
         </div>
         <div class="image-grid">
             <div class="img-container grid-item-1"><div class="img-box"><img src="food1.jpg" alt="Food & beverage 1"></div></div>
@@ -491,11 +522,11 @@
         </div>
     </section>
 
-    <!-- ========== EVENTS ========== -->
+    <!-- ========== 04. EVENTS ========== -->
     <section id="events">
         <div class="section-title">
             <span class="eyebrow">Coverage</span>
-            <h2 class="title-md">03. Events</h2>
+            <h2 class="title-md">04. Events</h2>
         </div>
         <div class="image-grid">
             <div class="img-container grid-item-1"><div class="img-box"><img src="event1.jpg" alt="Event coverage 1"></div></div>
@@ -505,7 +536,7 @@
         </div>
     </section>
 
-    <!-- ========== CONTACT ========== -->
+    <!-- ========== 05. CONTACT ========== -->
     <section id="contact">
         <div class="contact-barcode">
             <img src="instagram-qr.jpg" alt="Instagram QR Code">
@@ -513,7 +544,7 @@
         <div class="contact-info">
             <div class="section-title">
                 <span class="eyebrow">Get In Touch</span>
-                <h2 class="title-md">04. Contact</h2>
+                <h2 class="title-md">05. Contact</h2>
             </div>
             <div class="contact-item">
                 <span class="contact-label">Instagram</span>
