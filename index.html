@@ -81,13 +81,6 @@
             line-height: 1.2;
         }
 
-        .subtitle {
-            font-size: 1rem;
-            font-weight: 300;
-            letter-spacing: 0.05em;
-            color: var(--text-light-gray);
-        }
-
         /* ========== SECTIONS ========== */
         section {
             min-height: 100vh;
@@ -157,10 +150,6 @@
             gap: 1.5rem;
         }
 
-        .portfolio-index-item {
-            display: block;
-        }
-
         .portfolio-index-link {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.4rem, 2.5vw, 2rem);
@@ -173,32 +162,18 @@
             padding-bottom: 0.25rem;
         }
 
-        .portfolio-index-link::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--text-white);
-            transition: width var(--transition-fast);
-        }
-
         .portfolio-index-link:hover {
             color: var(--text-white);
             transform: translateX(8px);
         }
 
-        .portfolio-index-link:hover::before {
-            width: 100%;
-        }
-
-        /* ========== IMAGE GRID SYSTEM ========== */
+        /* ========== FIXED FULL-FRAME SYSTEM (ANTI-CROP ENGINE) ========== */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: clamp(1.5rem, 3vw, 2.5rem);
+            gap: clamp(2rem, 5vw, 5rem);
             width: 100%;
+            align-items: start;
         }
 
         .img-container {
@@ -208,24 +183,20 @@
         }
 
         .img-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-subtle);
+            background-color: transparent; /* Removed dark background squares */
+            border: none;                  /* Removed rigid borders that box things in */
             overflow: hidden;
-            aspect-ratio: 3 / 4;
             position: relative;
             width: 100%;
+            height: auto;                  /* Prevents any container heights from forcing crops */
         }
 
         .img-box img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;                  /* Lets layout read natural image dimension flow */
+            max-height: 85vh;              /* Ensures giant vertical photos remain completely on screen */
+            object-fit: contain !important;/* CRITICAL: Protects 100% frame data. Never zooms or hides edges */
             display: block;
-            transition: transform 0.8s ease-out;
-        }
-
-        .img-box:hover img {
-            transform: scale(1.02);
         }
 
         .img-caption {
@@ -233,33 +204,31 @@
             font-weight: 400;
             letter-spacing: 0.05em;
             color: var(--text-light-gray);
-            margin-top: 0.75rem;
+            margin-top: 1rem;
             text-transform: uppercase;
         }
 
-        /* DESKTOP ASYMMETRIC LAYOUTS */
+        /* ASYMMETRIC POSITIONING SLOTS */
         #commercial .grid-item-1 { grid-column: span 7; }
-        #commercial .grid-item-2 { grid-column: span 5; margin-top: 4rem; }
+        #commercial .grid-item-2 { grid-column: span 5; margin-top: 12rem; }
         #commercial .grid-item-3 { grid-column: span 5; }
-        #commercial .grid-item-4 { grid-column: span 7; margin-top: 4rem; }
+        #commercial .grid-item-4 { grid-column: span 7; margin-top: 8rem; }
 
-        /* MUSIC VIDEOS WIDESCREEN GRID (16:9 Cinematic Aspect) */
-        #music-videos .img-box { aspect-ratio: 16 / 9; }
         #music-videos .grid-item-1 { grid-column: span 12; }
         #music-videos .grid-item-2 { grid-column: span 6; }
         #music-videos .grid-item-3 { grid-column: span 6; }
 
         #food-beverage .grid-item-1 { grid-column: span 4; }
-        #food-beverage .grid-item-2 { grid-column: span 4; margin-top: 3rem; }
+        #food-beverage .grid-item-2 { grid-column: span 4; margin-top: 6rem; }
         #food-beverage .grid-item-3 { grid-column: span 4; }
-        #food-beverage .grid-item-4 { grid-column: span 4; margin-top: 3rem; }
-        #food-beverage .grid-item-5 { grid-column: span 4; }
-        #food-beverage .grid-item-6 { grid-column: span 4; margin-top: 3rem; }
+        #food-beverage .grid-item-4 { grid-column: span 4; }
+        #food-beverage .grid-item-5 { grid-column: span 4; margin-top: 6rem; }
+        #food-beverage .grid-item-6 { grid-column: span 4; }
 
-        #events .grid-item-1 { grid-column: span 5; aspect-ratio: 4 / 5; }
-        #events .grid-item-2 { grid-column: span 7; aspect-ratio: 16 / 10; }
-        #events .grid-item-3 { grid-column: span 7; aspect-ratio: 16 / 10; }
-        #events .grid-item-4 { grid-column: span 5; aspect-ratio: 4 / 5; margin-top: 2rem; }
+        #events .grid-item-1 { grid-column: span 5; }
+        #events .grid-item-2 { grid-column: span 7; }
+        #events .grid-item-3 { grid-column: span 7; }
+        #events .grid-item-4 { grid-column: span 5; margin-top: 6rem; }
 
         /* ========== CONTACT SECTION ========== */
         #contact {
@@ -348,7 +317,7 @@
             border-color: var(--text-white);
         }
 
-        /* ========== ADAPTIVE MOBILE COMPATIBILITY ENGINE ========== */
+        /* ========== RESPONSIVE PHONE WRAPPERS ========== */
         @media (max-width: 1024px) {
             #home {
                 grid-template-columns: 1fr;
@@ -362,7 +331,7 @@
             }
 
             .hero-portrait {
-                min-height: 60vh;
+                min-height: 50vh;
                 height: auto;
             }
 
@@ -371,23 +340,15 @@
                 margin-top: 0 !important;
             }
 
-            .img-box {
-                aspect-ratio: auto !important;
-                max-height: 75vh;
-            }
-
             .img-box img {
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                background-color: var(--bg-dark-gray);
+                max-height: 75vh;
             }
         }
 
         @media (max-width: 768px) {
             section { padding: 3rem 1.5rem; min-height: auto; }
             .hero-content { gap: 2.5rem; }
-            .image-grid { gap: 2rem; }
+            .image-grid { gap: 2.5rem; }
             .hero-name { font-size: 2.5rem; }
             .portfolio-index-link { font-size: 1.25rem; }
             .title-md { font-size: 2rem; }
@@ -551,7 +512,7 @@
         </div>
     </section>
 
-    <!-- SMOOTH SCROLL & FLOATING NAV SCRIPT -->
+    <!-- SCROLL CONTROL SCRIPT -->
     <script>
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
