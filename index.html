@@ -48,7 +48,7 @@
             letter-spacing: 0.3px;
         }
 
-        /* Master Structural Centering wrapper Frame */
+        /* Master Centering Frame Layout */
         .portfolio-wrapper {
             max-width: 1600px;
             margin: 0 auto;
@@ -367,7 +367,7 @@
             word-break: break-word;
         }
 
-        /* ========== MOBILE UTILITY TRIGGER BUTTON ========== */
+        /* ========== FLOATING NAVIGATION INDEX LINK ========== */
         .back-to-top {
             position: fixed;
             bottom: clamp(1rem, 4vw, 2rem);
@@ -396,12 +396,12 @@
             pointer-events: auto;
         }
 
-        .back-to-top:active {
+        .back-to-top:hover {
             background-color: var(--text-white);
             color: var(--bg-black);
         }
 
-        /* ========== RESPONSIVE PHONE VIEWPORTS WRAPPERS ========== */
+        /* ========== RESPONSIVE DEVICE BREAKPOINTS ========== */
         @media (max-width: 1024px) {
             #home {
                 grid-template-columns: 1fr;
@@ -439,11 +439,21 @@
             }
         }
 
-        /* ========== HIGH-FIDELITY MOBILE & DESKTOP PDF COMPILING ENGINE ========== */
+        @media (max-width: 768px) {
+            section { padding: 3rem 1.5rem; min-height: auto; }
+            .hero-content { gap: 2.5rem; }
+            .image-grid { gap: 2.5rem; }
+            .hero-name { font-size: 2.5rem; }
+            .portfolio-index-link { font-size: 1.25rem; }
+            .title-md { font-size: 2rem; }
+            .contact-barcode { max-width: 250px; height: 250px; }
+        }
+
+        /* ========== HIGH-FIDELITY PDF PRINT ENGINE LAYOUTS ========== */
         @media print {
             @page {
                 size: portrait;
-                margin: 0rem; /* Full-bleed layout alignment padding */
+                margin: 0rem;
             }
             body {
                 background-color: #000000 !important;
@@ -452,7 +462,7 @@
                 print-color-adjust: exact;
             }
             .back-to-top, #backToTop, .portfolio-index {
-                display: none !important; /* Disables web interface overlays */
+                display: none !important;
             }
             section {
                 page-break-inside: avoid;
@@ -462,7 +472,7 @@
                 padding: 1.5cm !important;
             }
             .image-grid {
-                display: block !important; /* Collapses flex columns evenly inside static pages */
+                display: block !important;
             }
             .img-container {
                 page-break-inside: avoid;
@@ -483,8 +493,8 @@
     <!-- MASTER STRUCTURAL CENTERING FRAME -->
     <div class="portfolio-wrapper">
 
-        <!-- ONE-TAP MOBILE PDF TRIGGER SYSTEM -->
-        <div class="back-to-top" id="backToTop" onclick="window.print();">Save PDF</div>
+        <!-- FLOATING NAVIGATION INDEX LINK -->
+        <a href="#home" class="back-to-top" id="backToTop">Index</a>
 
         <!-- ========== HOME / SPLASH ========== -->
         <section id="home">
@@ -961,11 +971,10 @@
 
     </div> <!-- END MASTER CENTERING FRAME -->
 
-    <!-- MOBILE SCROLL & TRIGGER LOGIC SCRIPT -->
+    <!-- NAVIGATION TRACKING LOGIC SCRIPT -->
     <script>
         const backToTopBtn = document.getElementById('backToTop');
         
-        // Reveals the download button as soon as the user scrolls away from the hero splash screen
         window.addEventListener('scroll', () => {
             if (window.scrollY > window.innerHeight * 0.3) {
                 backToTopBtn.classList.add('visible');
@@ -974,7 +983,6 @@
             }
         });
 
-        // Touch anchor smoothing logic
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
