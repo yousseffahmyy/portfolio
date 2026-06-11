@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Visual Director & Photographer Portfolio - Cairo, Egypt">
+    <meta name="description" content="Visual Director & Photographer Portfolio">
     <title>Youssef Fahmy - Visual Director & Photographer</title>
     
     <!-- Google Fonts -->
@@ -23,6 +23,8 @@
             --border-subtle: #2c2c2e;
             --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --transition-fast: 0.3s ease-out;
+            --accent-primary: #7F53AC;
+            --accent-secondary: #657ced;
         }
 
         /* ========== RESET & BASE ========== */
@@ -325,25 +327,104 @@
             margin-top: 2rem;
         }
 
-        /* ========== CONTACT SECTION ========== */
+        /* ========== DYNAMIC CONTACT SECTION ========== */
         #contact {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animated background elements */
+        .contact-bg-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .contact-bg-element:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .contact-bg-element:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent-secondary), #00C9FF);
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .contact-bg-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #92FE9D, var(--accent-primary));
+            top: 50%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(90deg); }
+            50% { transform: translate(0, -50px) rotate(180deg); }
+            75% { transform: translate(-30px, -30px) rotate(270deg); }
+        }
+
+        /* Contact Content Container */
+        .contact-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: clamp(2rem, 6vw, 4rem);
             align-items: center;
-            min-height: 100vh;
+            padding: 0 clamp(1.5rem, 4vw, 3rem);
+        }
+
+        /* Contact Card with Glassmorphism */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: clamp(2rem, 5vw, 3.5rem);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            animation: slideInLeft 0.8s ease-out;
         }
 
         .contact-barcode {
             width: 100%;
-            max-width: 350px;
-            height: 350px;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-subtle);
+            max-width: 280px;
+            height: 280px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            animation: slideInRight 0.8s ease-out;
         }
 
         .contact-barcode img {
@@ -352,42 +433,101 @@
             object-fit: contain;
         }
 
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .contact-title {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-white) 0%, var(--text-light-gray) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-subtitle {
+            font-size: 1rem;
+            color: var(--text-light-gray);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .contact-item {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.6rem;
+            animation: fadeInUp 0.8s ease-out both;
         }
 
+        .contact-item:nth-child(1) { animation-delay: 0.2s; }
+        .contact-item:nth-child(2) { animation-delay: 0.4s; }
+        .contact-item:nth-child(3) { animation-delay: 0.6s; }
+
         .contact-label {
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.75rem;
+            font-weight: 600;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .contact-value {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
             font-weight: 400;
             letter-spacing: -0.3px;
             color: var(--text-white);
-            word-break: break-word;
         }
 
         .contact-value a {
-            transition: color var(--transition-fast);
-            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .contact-value a:hover {
-            color: var(--text-light-gray);
+            transform: translateX(4px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ========== BACK TO TOP / FLOATING NAV ========== */
@@ -464,11 +604,6 @@
                 gap: 2rem;
             }
 
-            #contact {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
             .hero-portrait {
                 min-height: 50vh;
             }
@@ -503,6 +638,16 @@
             .portfolio-index-link {
                 font-size: 1.3rem;
             }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-barcode {
+                max-width: 250px;
+                height: 250px;
+                margin: 0 auto;
+            }
         }
 
         @media (max-width: 768px) {
@@ -535,13 +680,8 @@
                 font-size: 1.8rem;
             }
 
-            .contact-barcode {
-                max-width: 250px;
-                height: 250px;
-            }
-
-            .contact-info {
-                gap: 2rem;
+            .contact-card {
+                padding: 2rem 1.5rem;
             }
         }
 
@@ -576,8 +716,12 @@
                 height: 200px;
             }
 
-            .contact-value {
-                font-size: 1.2rem;
+            .contact-title {
+                font-size: 1.6rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem 1rem;
             }
         }
 
@@ -696,31 +840,37 @@
 
     <!-- ========== CONTACT ========== -->
     <section id="contact">
-        <div class="contact-barcode">
-            <img src="instagram-qr.jpg" alt="Instagram QR Code">
-        </div>
-        <div class="contact-info">
-            <div class="section-title">
-                <span class="eyebrow">Get In Touch</span>
-                <h2 class="title-md">04. Contact</h2>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">Instagram</span>
-                <div class="contact-value">
-                    <a href="https://instagram.com/yousseffahmyy" target="_blank">@yousseffahmyy</a>
+        <div class="contact-bg-element"></div>
+        <div class="contact-bg-element"></div>
+        <div class="contact-bg-element"></div>
+        
+        <div class="contact-content">
+            <div class="contact-card">
+                <h2 class="contact-title">Get In Touch</h2>
+                <p class="contact-subtitle">Connect and collaborate</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-label">Instagram</span>
+                        <div class="contact-value">
+                            <a href="https://instagram.com/yousseffahmyy" target="_blank">@yousseffahmyy</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <div class="contact-value">
+                            <a href="tel:+201000000000">+20 (100) 000-0000</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <div class="contact-value">
+                            <a href="mailto:yousseffahmy35@gmail.com">yousseffahmy35@gmail.com</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="contact-item">
-                <span class="contact-label">Phone</span>
-                <div class="contact-value">
-                    <a href="tel:+201000000000">+20 (100) 000-0000</a>
-                </div>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">Email</span>
-                <div class="contact-value">
-                    <a href="mailto:yousseffahmy35@gmail.com">yousseffahmy35@gmail.com</a>
-                </div>
+            <div class="contact-barcode">
+                <img src="instagram-qr.jpg" alt="Instagram QR Code">
             </div>
         </div>
     </section>
